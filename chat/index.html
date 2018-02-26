@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>HashOut</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="node_modules/socket.io-client/dist/socket.io.js"></script>
+	<script type="text/javascript">
+		$(document).on("ready", start);
+
+		var ws = io.connect("http://localhost:9090");
+
+		function start(){
+			ws.on("msgServer", receive);
+			$("#send").on("click", send);
+		}
+
+
+		function receive(){
+			console.log(values);
+		}
+
+		function send(){
+			var values = {
+				'text' : $("#msg").val()
+			};
+
+			ws.emmit("msgUser", values);
+			$("#msg").val('');
+		}
+	</script>
+</head>
+<body>
+
+	<div id="chat">
+	</div>
+	
+	<input type="text" name="msg" id="msg" placeholder="You message...">
+	<input type="button" name="send" id="send" value="send">
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui hude header">Cadastro de Salas</div>
+	<form class="ui form" action="/salas/<%= salas._id %>?_method=PUT" method="POST">
+		<div class="field">
+			<label>Sala: </label>
+			<input type="text" name="salas[sala]" placeholder="Nome da Sala" value="<%=salas.sala%>">
+		</div>
+		<div class="field">
+			<select name="salas[periodo]" class="ui dropdown" value="<%=salas.periodo%>">
+				<option value="Manhã">Manhã</option>
+				<option value="Tarde">Tarde</option>
+				<option value="Noite">Noite</option>
+			</select>
+		</div>
+		<div class="field">
+			<label>Total de Alunos:</label>
+			<input type="text" name="salas[alunos]" placeholder="Quantidade de Alunos" value="<%=salas.alunos%>">
+		</div>
+		
+		<button class="ui green basic button">Cadastrar</button>
+	</form>
+</div>
+
+<% include partials/footer %>

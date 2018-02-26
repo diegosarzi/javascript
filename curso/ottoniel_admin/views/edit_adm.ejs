@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui hude header">Edicão do Adm</div>
+	<form class="ui form" action="/cadastro_adm/<%= adms._id %>?_method=PUT" method="POST">
+		<div class="field">
+			<label>Nome: </label>
+			<input type="text" name="adms[nome]" placeholder="Nome do Adm" value="<%=adms.nome%>">
+		</div>
+		<div class="field">
+			<label>Usuário:</label>
+			<input type="text" name="adms[user]" placeholder="Usuario do Adm" value="<%=adms.user%>">
+		</div>
+		<div class="field">
+			<label>Senha:</label>
+			<input type="password" name="adms[pass]" placeholder="Senha do Adm" value="<%=adms.pass%>">
+		</div>
+		
+		<button class="ui green basic button">Editar</button>
+	</form>
+</div>
+
+<% include partials/footer %>

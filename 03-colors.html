@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>03 - Colors</title>
+	<style type="text/css">
+		body {
+			width: 100%;
+			margin: 0, auto;
+		}
+		.button{
+			width: 100%;
+			text-align: center;
+		}
+		.top{
+			padding-top: 50px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body id='body'>
+<div class="top"><h1>WHAT'S YOUR FAVORITE COLOR?</h1></div>
+<div class="button">
+<button onclick='changeColor' id='button'>Color Change</button>
+</div>
+
+<script type="text/javascript">
+
+	var body = document.getElementById('body');
+	var button = document.getElementById('button');
+	var r, g, b;
+
+	button.addEventListener('click', changeColor);
+
+	function changeColor(){
+		r = Math.floor(Math.random() * (0 + 9));
+		g = Math.floor(Math.random() * (0 + 9));
+		b = Math.floor(Math.random() * (0 + 9));
+		console.log("#"+r+g+b);
+		body.style.background = "#"+r+g+b;
+	};
+	
+
+</script>
+</body>
+</html>

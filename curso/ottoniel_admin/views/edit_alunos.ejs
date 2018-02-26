@@ -1,0 +1,44 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui hude header">Edição do Aluno</div>
+	<form class="ui form" action="/alunos/<%= alunos._id %>?_method=PUT" method="POST">
+		<div class="field">
+			<label>Nome: </label>
+			<input type="text" name="alunos[nome]" placeholder="Nome do Aluno" value="<%=alunos.nome%>">
+		</div>
+		<div class="field">
+			<select name="alunos[periodo]" class="ui dropdown" value="<%=alunos.periodo%>">
+				<option value="Manhã">Manhã</option>
+				<option value="Tarde">Tarde</option>
+				<option value="Noite">Noite</option>
+			</select>
+		</div>
+		<div class="field">
+			<label>Sala:</label>
+			<input type="text" name="alunos[sala]" placeholder="Sala do Aluno" value="<%=alunos.sala%>">
+		</div>
+		<div class="field">
+			<label>Senha:</label>
+			<input type="password" name="alunos[pass]" placeholder="Senha do Aluno" value="<%=alunos.pass%>">
+		</div>
+		
+		<button class="ui green basic button">Cadastrar</button>
+	</form>
+</div>
+
+<%alunos.forEach(function(aluno){%>
+<div class="ui main text container segment">
+	
+	<p>Aluno: <%=aluno.nome%></p>
+	<p>Periodo: <%=aluno.periodo%></p>
+	<p>Periodo: <%=aluno.sala%></p>
+	<form action="/alunos/<%=aluno._id%>?_method=DELETE" method="POST">
+		<a class="ui orange basic button" href="/alunos/<%=aluno._id%>/edit">Edit</a>
+		<button class="ui red invert button">Delete</button>
+	</form>
+	
+</div>
+<%});%>
+
+<% include partials/footer %>

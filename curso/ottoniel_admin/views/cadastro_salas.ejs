@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+	<div class="ui hude header">Cadastro de Salas</div>
+	<form class="ui form" action="/salas" method="POST">
+		<div class="field">
+			<label>Sala: </label>
+			<input type="text" name="salas[sala]" placeholder="Nome da Sala">
+		</div>
+		<div class="field">
+			<select name="salas[periodo]" class="ui dropdown">
+				<option value="Manhã">Manhã</option>
+				<option value="Tarde">Tarde</option>
+				<option value="Noite">Noite</option>
+			</select>
+		</div>
+		<div class="field">
+			<label>Total de Alunos:</label>
+			<input type="text" name="salas[alunos]" placeholder="Quantidade de Alunos">
+		</div>
+		
+		<button class="ui green basic button">Cadastrar</button>
+	</form>
+</div>
+<%salas.forEach(function(sala){%>
+<div class="ui main text container segment">
+	
+	<p>Sala: <%=sala.sala%></p>
+	<p>Quantidade: <%=sala.alunos%></p>
+	<form action="/salas/<%=sala._id%>?_method=DELETE" method="POST">
+			<a class="ui orange basic button" href="/salas/<%=sala._id%>/edit">Edit</a>
+				<button class="ui red invert button">Delete</button>
+			</form>
+	
+</div>
+<%});%>
+
+<% include partials/footer %>

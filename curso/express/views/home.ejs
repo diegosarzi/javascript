@@ -1,0 +1,18 @@
+<% include partial/header %>
+
+<body style="background: #f6f6f6;">
+
+
+<div id="container" style="width: 600px; margin: 0 auto; font-family: Helvetica; background: #ffffff; padding: 20px;">
+
+<h1 style="text-align: center; color: #464646;">OUUUUUAGRARHHH! </h1>
+
+<img style="display: block; width: 90%; margin: 0 auto; border: 1px solid grey; padding: 10px; background: white; " src="https://media.mnn.com/assets/images/2016/08/Lion-Stalking-Kalahari-Desert.jpg.638x0_q80_crop-smart.jpg">
+
+<% for(var i = 0; i < thingVar; i++){ %>
+<p>Texto da url: <strong><%= thingVar.toUpperCase(); %></strong></p>
+<% } %>
+
+</div>
+
+<% include partial/footer %>

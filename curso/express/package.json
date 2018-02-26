@@ -1,0 +1,17 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "Demo Project",
+  "main": "app.js",
+  "dependencies": {
+    "cat-me": "^1.0.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Sarzi",
+  "license": "ISC"
+}

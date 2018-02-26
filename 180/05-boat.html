@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>05 - Boat</title>
+	<style type="text/css">
+	
+	body {
+		margin: 0;
+		background: #197575;
+	}
+
+	#container {
+		width: 100%;
+		height: 100%;
+		margin: 0, auto;
+		position: relative;
+	}
+
+	#sky {
+		width: 100%;
+		height: 400px;
+		background: #62b7a7;
+		position: relative;
+	}
+
+	#ocean {
+		width: 100%;
+		height: 400px;
+		top: 300px;
+		background: #197575;
+		position: absolute;
+	}
+
+	.clouds{
+		width: 150px;
+		height: 50px;
+		background: #fff;
+		position: absolute;
+	}
+
+	#left{
+		top: 20%;
+		left: 30%;
+	}
+
+    #right{
+		top: 40%;
+		left: 60%;
+	}
+
+	#boat{
+		width: 60px;
+		height: 20px;
+		background: #420;
+		position: relative;
+		top: 30px;
+		left: 50%;
+	}
+
+	#topBoat{
+		width: 8px;
+		height: 50px;
+		top: -40px;
+		left: 30px;
+		background: #420;
+		position: absolute;
+
+	}
+	
+	</style>
+</head>
+<body>
+
+<div id="container">
+	
+	<div id="sky">
+		<div class="clouds" id="left"></div>
+		<div class="clouds" id="right"></div>
+	</div>
+
+	<div id="ocean">
+		<div id="boat"><div id="topBoat"></div></div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	
+	const sky = document.getElementById('sky');
+	const cloudLeft = document.getElementById('left');
+	const cloudRight = document.getElementById('right');
+	const ocean = document.getElementById('ocean');
+	const boat = document.getElementById('boat');
+	const windowWidth = window.innerWidth;
+
+	var flip = false;
+
+	oceanTop = 300;
+
+	setInterval(loopOcean, 200);
+	function loopOcean(){
+		if (oceanTop >= 300 && flip == false){
+			oceanTop++;
+			ocean.style.top = oceanTop + 'px';
+			if(oceanTop == 320){
+				flip = true;
+			}
+		}
+
+		if (oceanTop <= 320 && flip == true){
+			oceanTop--;
+			ocean.style.top = oceanTop + 'px';
+			if(oceanTop == 300){
+				flip = false;
+			}
+		}
+	}
+
+	var leftPos =  Math.floor(Math.random() * (10 + windowWidth));
+	var rightPos = Math.floor(Math.random() * (10 + windowWidth));
+
+	setInterval(loopClouds, 200);
+	function loopClouds(){
+		leftPos++;
+		cloudLeft.style.left = leftPos + 'px';
+		rightPos--;
+		cloudRight.style.left = rightPos + 'px';
+		if (leftPos >= (windowWidth - 170) || leftPos <= 0){
+			leftPos =  Math.floor(Math.random() * (10 + windowWidth));
+		}
+		if (rightPos >= (windowWidth - 170) || rightPos <= 0){
+			rightPos =  Math.floor(Math.random() * (10 + windowWidth));
+		}
+	}
+
+	var boatPos = Math.floor(Math.random() * (10 + windowWidth));
+
+	setInterval(loopBoat, 200);
+	function loopBoat(){
+		boatPos++;
+		boat.style.left = boatPos + 'px';
+		if (boatPos >= (windowWidth - 60) || boatPos <= 0){
+			boatPos =  Math.floor(Math.random() * (10 + windowWidth));
+		}
+	}
+
+</script>
+
+</body>
+</html>

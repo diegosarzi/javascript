@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>You Message!</title>
+	<style>
+
+		body{
+			background: #43344f;
+			margin: 0;
+		}
+		h1{
+			font-size: 24px;
+		}
+
+		#container{
+			font-family: Helvetica;
+			margin-top: 2%;
+			padding-bottom: 50px;
+			text-align: center;
+			color: white;
+			text-align: center;
+		}
+
+		#form{
+			width: 400px;
+			text-align: center;
+			margin: 0 auto;
+		}
+
+		#button{
+			background-color: #704d8b;
+		    border: none;
+		    color: white;
+		    padding: 10px 24px;
+		    text-align: center;
+		    text-decoration: none;
+		    font-size: 16px;
+		}
+
+
+		input[type=text]{
+			width: 100%;
+		    padding: 12px 20px;
+		    margin: 8px 0;
+		    box-sizing: border-box;
+		    border: none;
+		    background: #433133;
+		    border-radius: 15px;
+
+		}
+
+		input[type=text]:focus {
+		    background-color: lightblue;
+		}
+
+		#message{
+			width: 500px;
+			margin: 20px auto;
+			border: 1px solid #70607D;
+			border-radius: 25px;
+		}
+
+		p{
+			margin: 10px auto;
+		}
+
+		hr{
+			width: 300px;
+			border: none;
+			height: 1px;
+			background: #70607D;
+			margin: 40px auto;
+		}
+		
+
+	</style>
+</head>
+<body>
+<div id='container'>
+	<img src="http://findicons.com/files/icons/734/phuzion/128/mail.png" style="width: 90px;">
+	<h1>POST YOU MESSAGE:</h1>
+	<div id='form'>
+	<form action="/post" method="POST">
+		<p>NAME:<input type="text" name="name"></p>
+		<p>MESSAGE: <input type="text" name="message"></p>	
+	<input type="submit" value="SEND" id='button'>
+	</form>
+
+	<hr>
+	<p>ALL MESSAGES : <%= Object.keys(message).length; %></p>
+
+	</div>
+
+	<% message.reverse().forEach(function(men){ %>
+	<div id='message'>
+		<p><strong><%= men.name %></strong></p>
+		<p><%= men.message %></p>
+	</div>
+	<%});%>
+	
+</div>
+
+</body>
+</html>

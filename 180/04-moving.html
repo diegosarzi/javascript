@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>04-Moving</title>
+	<style rel="stylesheet">
+		body {
+			background: #888;
+		}
+
+		.top{
+			font-family: 'Helvetica';
+			font-size: 18px;
+			margin: 0, auto;
+			padding: 100px 0px 10px 0px;
+			text-align: center;
+			color: #555;
+		}
+	
+		.container{
+			width: 55px;
+			height: 150px;
+			margin: auto;
+			position: relative;
+		}
+
+		.button{
+			margin: 0, auto;
+			text-align: center;
+			padding-top: 30px;
+		}
+
+		#circle {
+	        width: 50px;
+	        height: 50px;
+	        -webkit-border-radius: 25px;
+	        -moz-border-radius: 25px;
+	        border-radius: 25px;
+	        background: blue;
+	        position: absolute;
+	    }
+	</style>
+</head>
+<body>
+
+<div class="top"><h1>ANIME PING BALL</h1></div>
+<div class="container"><div id='circle'></div></div>
+<div class="button"><button id='button'>Reset</button></div>
+
+<script type="text/javascript"> 
+
+	var circle = document.getElementById('circle');
+	var reset = document.getElementById('button');
+	var pos = 0;
+	var posN = 10;
+	var posF = 100;
+	var ping = false;
+	var end = false;
+	var posX = circle.style.left;
+	var id = setInterval(frame, 1);
+
+	button.onclick = function(){
+		pos = 0;
+		ping = false;
+		posN = 10;
+		if(end == true){
+			id = setInterval(frame, 1);
+		};
+		
+	};
+
+	function frame(){
+		if(ping == false){
+			end = false;
+			pos++;
+			circle.style.top = pos + 'px';
+			circle.style.left = (posX-2) + 'px';
+			if(pos >= posF){ circle.style.height = 45 + 'px'; circle.style.width = 55 + 'px'; ping = true; };
+		} else if(ping == true){
+			pos--;
+			
+			circle.style.top = pos + 'px';
+			if(pos <= (posF - 10)){ circle.style.height = 55 + 'px'; circle.style.width = 45 + 'px'; circle.style.left = (posX+2) + 'px';};
+			if(pos <= posN){ circle.style.height = 50 + 'px'; circle.style.width = 50 + 'px';};
+			if(pos <= posN){ ping = false; posN = posN + 10;};
+				if(posN >= posF){ circle.style.top = posF; clearInterval(id); end = true;};
+		};
+	}
+
+</script>
+</body>
+</html>
