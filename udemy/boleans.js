@@ -1,4 +1,4 @@
-isAtivo = true
+let isAtivo = true
 console.log(isAtivo)
 
 isAtivo = 1
@@ -25,5 +25,5 @@ console.log(!!(isAtivo = false))
 console.log('Para finalizar...')
 console.log(!!('' || null || 0 || ' '))
 
-let nome = ''
+let nome = 'Diego'
 console.log(nome || 'Desconhecido')

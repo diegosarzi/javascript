@@ -1,17 +1,18 @@
 const nome = "Diego"
-const concatenacao = "Ola " + nome + "!"
+const frase = "Ola " + nome + "!"
 
-// const template = `Ola ${nome}!`
-// const template2 = `
-//     Ola 
-//         ${nome}
-//                 !`
+const template = `Ola ${nome}!`
 
-// console.log(template)
-// console.log(template2)
+const template2 = `
+    Ola 
+        ${nome}
+                !`
 
-// // expressoes ...
-// console.log(`1 + 1 = ${ 1 + 1 }`)
+console.log(template)
+console.log(template2)
 
-// const up = text => text.toUpperCase()
-// console.log(`Ei... ${up('cuidado!')}`)
+// expressoes ...
+console.log(`1 + 1 = ${ 1 + 1 }`)
+
+const maiscula = texto => texto.toUpperCase()
+console.log(`Ei... ${maiscula('cuidado!')}`)z
