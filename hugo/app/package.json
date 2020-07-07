@@ -11,7 +11,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
-    "electron": "^1.7.8",
+    "electron": "^9.1.0",
     "electron-ejs": "^1.1.1",
     "express": "^4.16.1",
     "method-override": "^2.3.10",
